@@ -2,22 +2,37 @@ package com.epam.rd.autotasks;
 
 public class CountDownTask implements Task{
 
+    private int countDownValue;
+    private boolean isFibished = false;
     public CountDownTask(int value) {
-        throw new UnsupportedOperationException();
+
+        if(value <= 0) {countDownValue = 0; isFibished = true;}
+        else countDownValue = value;
+
     }
 
     public int getValue() {
-        throw new UnsupportedOperationException();
+        return countDownValue;
     }
 
 
     @Override
     public void execute() {
-        throw new UnsupportedOperationException();
+        if(countDownValue <= 0) {isFibished = true; return;}
+        countDownValue--;
+        if(countDownValue == 0) {isFibished = true;}
     }
 
     @Override
     public boolean isFinished() {
-        throw new UnsupportedOperationException();
+       return isFibished;
+    }
+
+    @Override
+    public String toString() {
+        return "CountDownTask{" +
+                "countDownValue=" + countDownValue +
+                ", isFibished=" + isFibished +
+                '}';
     }
 }

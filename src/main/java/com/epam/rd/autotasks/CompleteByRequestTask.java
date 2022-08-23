@@ -2,17 +2,29 @@ package com.epam.rd.autotasks;
 
 public class CompleteByRequestTask implements Task {
 
+    private boolean complete = false;
+    private boolean isFibished = false;
+
+    CompleteByRequestTask(){}
     @Override
     public void execute() {
-        throw new UnsupportedOperationException();
+        if(complete) isFibished = true;
     }
 
     @Override
     public boolean isFinished() {
-        throw new UnsupportedOperationException();
+        return isFibished;
     }
 
     public void complete() {
-        throw new UnsupportedOperationException();
+        complete = true;
+    }
+
+    @Override
+    public String toString() {
+        return "CompleteByRequestTask{" +
+                "complete=" + complete +
+                ", isFibished=" + isFibished +
+                '}';
     }
 }
